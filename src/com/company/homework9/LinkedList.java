@@ -1,6 +1,8 @@
 package com.company.homework9;
 
-public class LinkedList implements List{
+import java.util.Iterator;
+
+public class LinkedList implements List {
 
     private int size;
     private Node head;
@@ -105,6 +107,7 @@ public class LinkedList implements List{
             Node holder;
             while (last != null) {
                 if (counter == index - 1) {
+                    val=last.next.val;
                     holder=last.next;
                     last.next=holder.next;
                     holder.next=null;
@@ -116,6 +119,26 @@ public class LinkedList implements List{
         }
         size--;
         return val;
+    }
+
+    @Override
+    public Iterator<Integer> iterator(){
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<Integer>{
+
+        int index;
+
+        @Override
+        public boolean hasNext() {
+            return index<size;
+        }
+
+        @Override
+        public Integer next() {
+            return get(index++);
+        }
     }
 
     @Override

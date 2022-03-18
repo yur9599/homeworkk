@@ -1,6 +1,6 @@
 package com.company.homework9;
 
-public interface List {
+public interface List extends Iterable<Integer> {
 
     int size();
 
