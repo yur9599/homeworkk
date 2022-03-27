@@ -1,13 +1,24 @@
 package com.company;
 
-import static com.company.homework1.Strings.caesar;
-import static com.company.homework1.Strings.repetedChar;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import static com.company.genericsAndBounds.GenericsAndBounds.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        String a="sfdfsf";
-        System.out.println(caesar("Testing"));
+        List<Integer> list = new LinkedList<>();
+        list.add(6);
+        list.add(18);
+        list.add(9);
+        list.add(7);
+        System.out.println(maxElement(list, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1-o2;
+            }
+        }));
     }
 
 }
