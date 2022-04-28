@@ -1,8 +1,11 @@
 package jsonAndXml.human.aboutPhone;
 
-public class PhoneNumber {
+import jakarta.xml.bind.annotation.XmlElement;
 
+public class PhoneNumber {
+    @XmlElement
     private String number;
+    @XmlElement
     private NumberType type;
 
     public PhoneNumber(){}

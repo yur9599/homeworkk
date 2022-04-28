@@ -1,23 +1,22 @@
 package jsonAndXml.xml.xmlCreater;
 
-import jsonAndXml.human.employee.Employee;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
+import jsonAndXml.List.EmployeesList;
+
 import java.io.File;
 
 public class CreateXml {
-
     private CreateXml(){}
-
-    public static void addData(File file, Object... x){
+    public static void addData(File file, Object x){
         try {
-            JAXBContext jc = JAXBContext.newInstance(Employee.class);
+            JAXBContext jc = JAXBContext.newInstance(EmployeesList.class);
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
-            marshaller.marshal(x,file);
-        } catch (JAXBException e) {
+            marshaller.marshal(x , file);
+        } catch ( JAXBException e) {
             throw new RuntimeException(e);
         }
     }

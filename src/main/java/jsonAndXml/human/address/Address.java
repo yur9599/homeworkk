@@ -1,11 +1,16 @@
 package jsonAndXml.human.address;
 
 
-public class Address {
+import jakarta.xml.bind.annotation.XmlElement;
 
+public class Address {
+    @XmlElement
     private String city;
+    @XmlElement
     private String country;
+    @XmlElement
     private String street;
+    @XmlElement
     private String postalCode;
 
     public Address(){}

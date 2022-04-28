@@ -1,15 +1,23 @@
 package jsonAndXml.human.employee;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import jsonAndXml.human.aboutPhone.PhoneNumber;
 import jsonAndXml.human.address.Address;
 import java.util.List;
-
+@XmlRootElement
 public class Employee {
-
+    @XmlElement
     private String fName;
+    @XmlElement
     private String lName;
+    @XmlElement
     private int age;
+    @XmlElement
     private Address address;
+    @XmlElement
     private List<PhoneNumber> numbers;
 
     public Employee(){}

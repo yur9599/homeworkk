@@ -1,29 +1,28 @@
 package jsonAndXml.xml.xmlParser;
 
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Unmarshaller;
 
+import jsonAndXml.List.EmployeesList;
 import jsonAndXml.human.employee.Employee;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.util.Arrays;
-import java.util.List;
 
 public class ParseXml {
 
     private ParseXml(){}
 
-    public static void uploadData(File file, List<Employee> list){
+    public static EmployeesList uploadData(File file){
+        EmployeesList x;
         try {
-            JAXBContext jc = JAXBContext.newInstance(Employee.class);
+            JAXBContext jc = JAXBContext.newInstance(EmployeesList.class);
             Unmarshaller unmarshaller = jc.createUnmarshaller();
-            Employee[] employees = (Employee[]) unmarshaller.unmarshal(file);
-            list.addAll(Arrays.asList(employees));
+            x = ((EmployeesList) unmarshaller.unmarshal(file));
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
-
+        return x;
     }
 
 }
